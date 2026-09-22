@@ -9,7 +9,7 @@
 | Risk ID | RA-2026-004 |
 | System/Asset | Accounts Payable invoice review folders ("AP Draft Invoices") and the legacy InvoiceTrack workflow |
 | Risk Owner | Chief Financial Officer |
-| Prepared By | Faith Olofintuyi, GRC |
+| Prepared By | Faith Olofintuyi, Risk & Compliance |
 | Date | September 22, 2026 |
 | Review Date | March 22, 2027 |
 | Version | 0.1 (Draft) |
@@ -31,15 +31,21 @@
 
 ## 1. Executive Summary
 
-Outside partners can open the folders where we keep draft invoices during the last review step before vendors are paid. Anyone with that access, including an attacker who takes over a single partner's account, could quietly change a vendor's bank details or invoice amount, and we would probably pay the wrong party before anyone noticed. Fixing this properly is hard right now because the folder permissions were built by an engineer who is no longer with the company, and the legacy system would need retraining and downtime to replace. This document sets out four options and asks the risk owner to choose one knowingly.
+External partners and their staff (some located offshore) can open and edit the ShareFile folders where draft invoices sit just before vendors are paid. They get this access through inherited permissions that nobody still at the company fully understands. The main danger is payment fraud rather than data leakage, though both risks exist. Someone using a partner's account could change a vendor's bank details, and we would likely pay the wrong account without noticing until the real vendor chased payment weeks later.
+
+Fixing this is hard right now. The engineer who built the permission model was laid off without a handover, and changing the legacy InvoiceTrack system would mean downtime and retraining. Upgrading the software version could also result in vendor data loss.
+
+The Risk & Compliance team recommended Option B, which removes partner access and adds payment checks for about $70K to $110K. On August 19, 2026, the executive team chose Option D instead: payment checks and logging only, for about $15K, because of budget and staffing limits.
+
+This acceptance runs for six months and holds only if the Section 8 conditions are met.
 
 **Recommendation:**
 - [ ] Option A: Full remediation. Rebuild the invoice repository with role-based access and retire the legacy permission model.
-- [x] Option B: Partial remediation. Move invoice folders to an internal-only location, cut partner access, and add payment verification controls. **(GRC recommendation)**
+- [x] Option B: Partial remediation. Move invoice folders to an internal-only location, cut partner access, and add payment verification controls. **(Risk & Compliance team recommendation)**
 - [ ] Option C: Accept the risk as it stands.
 - [ ] Option D: Accept with minimal improvements. Add payment verification and logging only, and keep the current folder structure.
 
-> **Decision status:** On August 19, 2026, the executive team declined Options A and B, citing budget and staffing. This document records that decision under Option D (Section 6) and preserves the GRC recommendation and the reasons for it.
+> **Decision status:** On August 19, 2026, the executive team declined Options A and B, citing budget and staffing. This document records that decision under Option D (Section 6) and preserves the Risk & Compliance team's recommendation and the reasons for it.
 
 ---
 
@@ -57,10 +63,11 @@ We could send vendor payments to the wrong bank account, expose confidential pri
 
 ### 2.2 How It Could Happen
 
-1. **Inherited permissions.** The invoice folders sit inside a folder structure that is also shared with external partners. Access flows down automatically, and nobody still here fully understands how it was set up.
+1. **Inherited permissions.** The invoice folders sit inside a ShareFile folder structure that is also shared with external partners. Access flows down automatically, and nobody still here fully understands how it was set up.
 2. **Compromised partner accounts.** We do not control partners' password or MFA practices. If any one of them is phished, the attacker inherits their access to our folders.
 3. **Insider misuse at a partner.** A partner employee with a legitimate reason to use the shared site can also see invoices that are none of their business.
-4. **Social engineering after exposure.** Even read-only access gives a criminal the exact vendor names, invoice numbers, and amounts needed to send a convincing fake "please update our bank details" email.
+4. **Offshore access.** Some partner staff work outside the United States. We do not know which countries or how many people, and misuse from abroad is harder to investigate and much harder to recover money from.
+5. **Social engineering after exposure.** Even read-only access gives a criminal the exact vendor names, invoice numbers, and amounts needed to send a convincing fake "please update our bank details" email.
 
 ### 2.3 Why We Might Not Know
 
@@ -160,7 +167,7 @@ Current controls protect our own users well but do almost nothing about the actu
 | Pros | Fixes the root cause; strongest SOC 2 position; reduces key-person dependency |
 | Cons | Not budgeted this fiscal year; requires outside help; disrupts AP during migration |
 
-### Option B: Partial Remediation (GRC Recommendation)
+### Option B: Partial Remediation (Risk & Compliance Recommendation)
 
 | Aspect | Detail |
 |--------|--------|
@@ -212,12 +219,12 @@ Current controls protect our own users well but do almost nothing about the actu
 
 ### 6.1 Selected Option
 
-**GRC recommendation:** Option B, Partial Remediation
+**Risk & Compliance team recommendation:** Option B, Partial Remediation
 **Executive decision (August 19, 2026):** Option D, Accept with Minimal Improvements
 
 ### 6.2 Rationale
 
-GRC recommends Option B because:
+The Risk & Compliance team recommends Option B because:
 1. It removes the external exposure itself, not just the symptoms, for less than one-fifth of Option A's cost.
 2. It does not require the engineering headcount the business says it lacks. A short contractor engagement covers the knowledge gap.
 3. It gives the SOC 2 auditor concrete evidence of remediation before the next audit period closes.
@@ -227,7 +234,7 @@ The executive team selected Option D because:
 2. Engineering and technical support report no available capacity.
 3. Option D addresses the highest-cost scenario (diverted payments) at minimal expense.
 
-GRC's position: Option D is a reasonable interim step, but it leaves the data exposure and SOC 2 exposure in place. This acceptance is therefore time-limited and conditional (Section 8).
+Risk & Compliance team position: Option D is a reasonable interim step, but it leaves the data exposure and SOC 2 exposure in place. This acceptance is therefore time-limited and conditional (Section 8).
 
 ### 6.3 Immediate Actions
 
@@ -237,7 +244,7 @@ Within 2 weeks:
 - [ ] Require two approvers for any payment of $25K or more (Owner: Controller)
 - [ ] Remove partner accounts inactive for 90 days or more (Owner: IT Operations)
 - [ ] Enable file audit logging on AP invoice folders (Owner: IT Operations)
-- [ ] Review the two suspicious bank-change requests from the past 12 months (Owner: GRC with AP)
+- [ ] Review the two suspicious bank-change requests from the past 12 months (Owner: Risk & Compliance with AP)
 
 ### 6.4 Future Commitments
 
@@ -245,7 +252,7 @@ Within 2 weeks:
 |--------|----------|-------|--------|
 | Submit Option B as an FY2027 budget request | Q1 FY2027 planning cycle | CFO | $70K to $110K |
 | Document current permission model (see RA-2026-005) | Within 90 days | IT Director | Staff time or contractor |
-| Quarterly status report to Audit Committee | Each quarter until closed | GRC | None |
+| Quarterly status report to Audit Committee | Each quarter until closed | Risk & Compliance | None |
 
 ---
 
@@ -304,6 +311,7 @@ This acceptance must be re-evaluated immediately if:
 | CCPA (§1798.100(e), §1798.150) | Reasonable security; private right of action for breaches caused by unreasonable security | A documented, known, unremediated gap weakens any "reasonable security" defense. Statutory damages apply only to categories defined in §1798.81.5. A bank account number generally qualifies only when paired with an access code, so exposure depends on what invoices actually contain. **Legal review needed.** |
 | CCPA (§1798.105, §1798.110) | Rights to delete and to know | Uncontrolled copies in partner-accessible folders make complete responses hard to guarantee |
 | CCPA cybersecurity audit regulations (effective January 1, 2026) | Annual audit for businesses meeting significant-risk thresholds | Likely not triggered: as a B2B contractor, the company is unlikely to process personal information of 250,000 or more consumers, or sensitive personal information of 50,000 or more. Confirm annually. If triggered, first certification would be due April 1, 2028 (revenue over $100M). |
+| Cross-border access | Partner staff located outside the United States can reach vendor personal information | CCPA does not ban access from abroad, but partners who receive personal information need contracts with CCPA-required terms (§1798.100(d)). Client contracts may also limit offshore access to their data. Recovery and investigation are harder across borders. **Legal to confirm which countries and what partner contracts say.** |
 | Client contracts | Security and audit clauses requiring an unqualified SOC 2 Type II report | A qualified opinion could trigger notice, cure, or termination rights. Legal to review top client agreements. |
 
 ### 9.1 Legal Considerations
@@ -371,7 +379,7 @@ By signing, I approve this risk acceptance at the executive level.
 
 ### A. Technical Details
 
-- **Storage:** Invoice drafts sit in "AP Draft Invoices," a subfolder of a collaboration site originally set up for joint work with field partners. Permissions are inherited from the parent site.
+- **Storage:** Invoice drafts sit in "AP Draft Invoices," a subfolder of a ShareFile site originally set up for joint work with field partners, including partner staff located offshore. Permissions are inherited from the parent site.
 - **Workflow:** InvoiceTrack (in-house, built in 2014) reads from and writes to these folders. The permission mapping between InvoiceTrack and the folder structure was built and maintained by one systems engineer, whose role was eliminated in the most recent reduction in force without a knowledge transfer.
 - **Why separation is hard:** Breaking inheritance on the invoice folders without understanding InvoiceTrack's dependencies risks breaking the AP workflow. That is the source of the downtime and retraining concern.
 
@@ -391,6 +399,6 @@ All meetings were recorded on Microsoft Teams, as is standard for meetings like 
 
 | Date | Attendees | Summary |
 |------|-----------|---------|
-| July 14, 2026 | GRC, Finance, Legal | GRC presented the finding. Finance and Legal favored acceptance, citing cost and the low number of known incidents. |
-| July 28, 2026 | GRC, Engineering, Technical Support | Engineering agreed the risk is real but reported no capacity. Nobody on staff can safely change the permission model. |
-| August 19, 2026 | C-suite, GRC, Finance, Legal, Engineering | GRC presented Options A to D and recommended Option B. The executive team declined A and B for budget and staffing reasons and directed acceptance with minimal improvements (Option D). GRC asked that the decision be documented, time-limited, and reported to the Audit Committee. |
+| July 14, 2026 | Risk & Compliance, Finance, Legal | The Risk & Compliance team presented the finding. Finance and Legal favored acceptance, citing cost and the low number of known incidents. |
+| July 28, 2026 | Risk & Compliance, Engineering, Technical Support | Engineering agreed the risk is real but reported no capacity. Nobody on staff can safely change the permission model. |
+| August 19, 2026 | C-suite, Risk & Compliance, Finance, Legal, Engineering | The Risk & Compliance team presented Options A to D and recommended Option B. The executive team declined A and B for budget and staffing reasons and directed acceptance with minimal improvements (Option D). The Risk & Compliance team asked that the decision be documented, time-limited, and reported to the Audit Committee. |
