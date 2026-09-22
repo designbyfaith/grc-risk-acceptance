@@ -224,17 +224,17 @@ Current controls protect our own users well but do almost nothing about the actu
 
 ### 6.2 Rationale
 
-The Risk & Compliance team recommends Option B because:
-1. It removes the external exposure itself, not just the symptoms, for less than one-fifth of Option A's cost.
-2. It does not require the engineering headcount the business says it lacks. A short contractor engagement covers the knowledge gap.
-3. It gives the SOC 2 auditor concrete evidence of remediation before the next audit period closes.
+**The Risk & Compliance team recommends Option B because:**
+1. It closes the actual gap. Moving the draft invoices out of the partner-shared ShareFile site cuts off partner staff, including those offshore, instead of only watching what they do. Option D adds checks but leaves the door open.
+2. It costs $70K to $110K, less than a fifth of Option A, and does not require replacing InvoiceTrack. That avoids the downtime, retraining and possible vendor data loss that a platform change would bring.
+3. It gives the SOC 2 auditor evidence of real remediation before the March 2027 review, which matters because our largest clients expect a clean report.
 
-The executive team selected Option D because:
-1. No budget is allocated for Options A or B in the current fiscal year.
-2. Engineering and technical support report no available capacity.
-3. Option D addresses the highest-cost scenario (diverted payments) at minimal expense.
+**The executive team selected Option D because:**
+1. No money is set aside for Option A or B in this fiscal year.
+2. Engineering and Technical Support say they have no capacity to take on the work.
+3. Option D targets the most expensive scenario, a diverted payment, for about $15K and can be in place within a month.
 
-Risk & Compliance team position: Option D is a reasonable interim step, but it leaves the data exposure and SOC 2 exposure in place. This acceptance is therefore time-limited and conditional (Section 8).
+**Risk & Compliance team position:** Option D lowers the chance of a diverted payment, but it is not a fix. The core exposure stays open: partners can still see and change draft invoices, and a SOC 2 access exception remains likely. For that reason this acceptance is limited to six months and depends on the Section 8 conditions, including submitting Option B in the FY2027 budget.
 
 ### 6.3 Immediate Actions
 
