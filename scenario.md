@@ -1,7 +1,7 @@
 # Scenario: Inherited Access to Draft Invoices
 
 > Author: Faith Olofintuyi
-> Based on an anonymized, fictionalized version of a real risk decision. Names, figures, and identifying details have been changed.
+> Fictional scenario. The company, people, and figures are invented for this portfolio.
 
 ## The Organization
 Sierra Meridian Field Services, Inc. (fictional) is an oil and gas operations contractor headquartered in Sacramento, California. It has 1,610 employees, about 70% of them remote, and about $285M in annual revenue. It pays about $140M a year to roughly 900 active vendors. The company holds a SOC 2 Type II report, which its largest clients require, and is subject to the California Consumer Privacy Act (CCPA).
