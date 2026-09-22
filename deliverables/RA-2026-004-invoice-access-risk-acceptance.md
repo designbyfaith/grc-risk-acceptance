@@ -93,11 +93,11 @@ The attack is cheap, the reward is large, and we have no way to see it happening
 |-----------------|----------------------|----------------|
 | Data Breach | Exposure of vendor bank details, contact data, and contract rates; forensic investigation, outside counsel, notification where required | $150K to $400K |
 | Financial Loss | One or more diverted vendor payments. Our largest single invoices run about $750K. Funds are rarely recovered once moved. | $75K to $750K per event |
-| Regulatory Action | CCPA: statutory damages of $107 to $799 per consumer per incident if qualifying personal information is breached (about 900 vendors, some sole proprietors), plus possible administrative fines | $0 to $720K |
+| Regulatory Action | CCPA: statutory damages of $107 to $799 per consumer per incident if qualifying personal information is breached (about 900 vendors, but only sole proprietors count as consumers), plus possible administrative fines | $0 to $720K (upper bound; assumes all 900 vendors qualify, so real exposure is lower) |
 | Reputation | A qualified SOC 2 opinion leads a major client to rebid or terminate. Our three largest clients account for about 38% of revenue (assumption). | $5M to $20M in annual revenue at risk |
 | Business Disruption | AP frozen during investigation; late payments to field vendors delay job sites | $25K to $40K per day, 5 to 10 days |
 
-**Total Potential Impact:** $0.4M to $37M range
+**Total Potential Impact:** $0.4M to about $22M range
 **Most Likely Scenario:** $0.9M to $2.2M (one diverted payment partly recovered, investigation costs, SOC 2 exception, remediation under deadline pressure, and heightened client scrutiny short of losing a client)
 
 *Estimate basis: invoice sizes and client concentration are scenario assumptions. CCPA figures are the amounts in effect since January 1, 2025. Ranges are deliberately wide, because the honest answer is that we do not know which scenario would occur.*
@@ -179,7 +179,7 @@ Current controls protect our own users well but do almost nothing about the actu
 | Description | Continue as is and document the decision. |
 | Actions Required | Sign this document. |
 | Direct Cost | $0 |
-| Potential Cost | $0.9M to $2.2M most likely; up to $37M (if an incident occurs) |
+| Potential Cost | $0.9M to $2.2M most likely; up to about $22M (if an incident occurs) |
 | Residual Risk | High |
 | Pros | No spend; no disruption |
 | Cons | Exposure unchanged; likely SOC 2 exception; weak position with clients, auditors, and in any later dispute |
@@ -308,10 +308,10 @@ This acceptance must be re-evaluated immediately if:
 
 ### 9.1 Legal Considerations
 
-- **Authority to accept.** Most-likely losses exceed $1M, with a worst case over $30M. The CFO's delegated authority may not cover a risk of this size. Executive approval is required (Section 10), and the Audit Committee should be notified.
+- **Authority to accept.** Most-likely losses exceed $1M, with a worst case over $20M. The CFO's delegated authority may not cover a risk of this size. Executive approval is required (Section 10), and the Audit Committee should be notified.
 - **This document is discoverable.** After an incident, a signed acceptance of a known gap may be offered as evidence that the company knew and chose not to act. That is a reason for accuracy and follow-through, not a reason to avoid writing it down. Keep it under the records retention schedule, and do not edit it after signature except through versioned amendments.
 - **Privilege.** Legal analysis of liability exposure (the §1798.150 and contract analysis above) should be prepared at the direction of counsel and kept separate from this business document, to preserve attorney-client privilege and work-product protection where available.
-- **Meeting recordings.** California requires the consent of all parties to record confidential communications (Penal Code §632). The meetings in Appendix C were recorded with every participant's consent, confirmed at the start of each recording.
+- **Meeting recordings.** California requires the consent of all parties to record confidential communications (Penal Code §632). It is standard practice here to record meetings like these on Microsoft Teams, so anyone who missed the meeting can catch up and so accurate notes can be kept. Everyone in the Appendix C meetings knew they were being recorded.
 
 ---
 
@@ -387,7 +387,7 @@ By signing, I approve this risk acceptance at the executive level.
 
 ### C. Meeting Minutes
 
-All meetings were recorded with the consent of every participant. Minutes are kept at the direction of the General Counsel.
+All meetings were recorded on Microsoft Teams, as is standard for meetings like these, and every participant knew they were being recorded. Minutes are kept at the direction of the General Counsel.
 
 | Date | Attendees | Summary |
 |------|-----------|---------|
